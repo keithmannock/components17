@@ -59,4 +59,17 @@ Compilation sequence:
 	
 ## Extended example
 
+Similar process as for the `Hello World` example but due to a bug the compilation sequence has to appear on one line.
 
+```
+javac example/module-info.java example/example/Example.java example/example/internal/ExampleImpl.java
+```
+Followed by:
+```
+javac -p example mainmod/module-info.java mainmod/main/Launcher.java
+```
+and then to run the resulting code:
+```
+java -p example:mainmod -m mainmod/main.Launcher
+```
+The module path has to be able to see both modules, hence the `mod1:mod2` notation.
